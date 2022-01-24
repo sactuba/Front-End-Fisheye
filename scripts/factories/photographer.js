@@ -21,7 +21,7 @@ class PhotographerFactoryIndex {
         <h2>${this.name}</h2>
         <span>${this.country},${this.city}</span>
         <p>${this.tagline}</p>
-        <p>${this.price} €/jour</p>
+        <p>${this.price} €/jour</p>aze
         </article>
         `
         return (photographerCard);
