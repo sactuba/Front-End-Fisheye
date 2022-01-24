@@ -1,17 +1,29 @@
-function photographerFactory(data) {
-    const { name, portrait } = data;
 
-    const picture = `assets/photographers/${portrait}`;
-
-    function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-        article.appendChild(img);
-        article.appendChild(h2);
-        return (article);
+class PhotographerFactoryIndex {
+    constructor(photographer) {
+        this.name = photographer.name
+        this.id = photographer.id
+        this.city = photographer.city
+        this.country = photographer.country
+        this.tagline = photographer.tagline
+        this.price = photographer.price
+        this.portrait = photographer.portrait
     }
-    return { name, picture, getUserCardDOM }
+
+    createPhotgrapherCard() {
+        const picture = `asset/photographers/${this.portrait}`;
+
+        const photographerCard = `
+        <article>
+        <a href="/photographer.html?id=${this.id}>
+        <img src=${picture}></img>
+        <a/>
+        <h2>${this.name}</h2>
+        <span>${this.country},${this.city}</span>
+        <p>${this.tagline}</p>
+        <p>${this.price} €/jour</p>
+        </article>
+        `
+        return (photographerCard);
+    }
 }
